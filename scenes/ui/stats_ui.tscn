@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqbckmlpp8aqw"]
+
+[ext_resource type="Theme" uid="uid://c86xn1hlfydc0" path="res://main_theme.tres" id="1_xyxg0"]
+[ext_resource type="Script" path="res://scenes/ui/StatsUI.cs" id="2_gvory"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="2_vi8sd"]
+[ext_resource type="Texture2D" uid="uid://d0edy7thj8ce6" path="res://art/heart.png" id="3_kackw"]
+
+[node name="StatsUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_right = 45.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme = ExtResource("1_xyxg0")
+alignment = 1
+script = ExtResource("2_gvory")
+
+[node name="BlockContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BlockImage" type="TextureRect" parent="BlockContainer"]
+layout_mode = 2
+texture = ExtResource("2_vi8sd")
+stretch_mode = 5
+
+[node name="BlockLabel" type="Label" parent="BlockContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HealthImage" type="TextureRect" parent="HealthContainer"]
+layout_mode = 2
+texture = ExtResource("3_kackw")
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="HealthContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1

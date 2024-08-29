@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://bwvc3tiutjcos"]
+
+[ext_resource type="Script" path="res://custom_resources/Stats.cs" id="1_ra0w1"]
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://art/tile_0121.png" id="1_rxv27"]
+
+[resource]
+script = ExtResource("1_ra0w1")
+MaxHealth = 10
+Art = ExtResource("1_rxv27")
