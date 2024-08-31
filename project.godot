@@ -35,6 +35,7 @@ project/assembly_name="Deck Builder Tutorial C#"
 
 ui_layer=""
 player=""
+enemies=""
 
 [input]
 

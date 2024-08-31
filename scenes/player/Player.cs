@@ -26,17 +26,13 @@ public partial class Player : Node2D
     {
         _sprite2D = GetNode<Sprite2D>("Sprite2D");
         _statsUI = GetNode<StatsUI>("StatsUI");
-        
+
         UpdatePlayer();
     }
 
     async void UpdatePlayer()
     {
-        if (!IsInsideTree())
-        {
-            await this.AwaitNodeReady();
-        }
-
+        await this.AwaitNodeReady();
         _sprite2D.Texture = Stats.Art;
         UpdateStats();
     }

@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_6xbog"]
 [ext_resource type="PackedScene" uid="uid://bdtmpit6pjbi1" path="res://scenes/ui/card_ui.tscn" id="2_21rrp"]
-[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://art/tile_0121.png" id="2_36hla"]
 [ext_resource type="Script" path="res://scenes/ui/Hand.cs" id="2_lbcou"]
 [ext_resource type="PackedScene" uid="uid://nhxujrspp3vf" path="res://scenes/card_target_selector/card_target_selector.tscn" id="2_w0b61"]
+[ext_resource type="PackedScene" uid="uid://eiipx38o71v1" path="res://scenes/enemy/enemy.tscn" id="3_xde5s"]
+[ext_resource type="Resource" uid="uid://bwvc3tiutjcos" path="res://enemies/ghost/test_enemy.tres" id="4_5dbcs"]
 [ext_resource type="Resource" uid="uid://maae6hapatqn" path="res://characters/warrior/cards/warrior_attack_axe.tres" id="4_6ti5o"]
 [ext_resource type="PackedScene" uid="uid://ocfi4hw0nfrb" path="res://scenes/player/player.tscn" id="4_xnwv4"]
 [ext_resource type="Resource" uid="uid://6pntypolvv7g" path="res://characters/warrior/cards/warrior_block.tres" id="5_3jqc3"]
@@ -12,8 +13,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyhhn"]
 size = Vector2(256, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc416"]
 
 [node name="Battle" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -34,16 +33,9 @@ position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_yyhhn")
 debug_color = Color(0, 0.6, 0.701961, 0.196078)
 
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(201, 71)
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("2_36hla")
-flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("RectangleShape2D_jc416")
+[node name="Enemy" parent="." instance=ExtResource("3_xde5s")]
+position = Vector2(226, 71)
+Stats = ExtResource("4_5dbcs")
 
 [node name="Player" parent="." instance=ExtResource("4_xnwv4")]
 position = Vector2(72, 67)
