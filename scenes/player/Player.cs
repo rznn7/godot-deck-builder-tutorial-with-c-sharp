@@ -1,7 +1,7 @@
 using DeckBuilderTutorialC.Extensions;
 using Godot;
 
-namespace DeckBuilderTutorialC.player;
+namespace DeckBuilderTutorialC;
 
 public partial class Player : Node2D
 {
@@ -42,7 +42,7 @@ public partial class Player : Node2D
         _statsUI.UpdateStats(Stats);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (Stats.Health <= 0) return;
 

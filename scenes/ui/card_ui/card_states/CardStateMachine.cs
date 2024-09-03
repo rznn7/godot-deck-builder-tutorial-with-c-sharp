@@ -32,7 +32,6 @@ public partial class CardStateMachine : Node
 
     public void OnGUIInput(InputEvent @event)
     {
-
         _currentState?.OnGUIInput(@event);
     }
 

@@ -1,7 +1,7 @@
 using DeckBuilderTutorialC.Extensions;
 using Godot;
 
-namespace DeckBuilderTutorialC.enemy;
+namespace DeckBuilderTutorialC;
 
 public partial class Enemy : Area2D
 {
@@ -31,6 +31,9 @@ public partial class Enemy : Area2D
         _arrow = GetNode<Sprite2D>("Arrow");
         _statsUi = GetNode<StatsUI>("StatsUI");
 
+        AreaEntered += OnAreaEntered;
+        AreaExited += OnAreaExited;
+
         UpdateEnemy();
     }
 
@@ -52,7 +55,7 @@ public partial class Enemy : Area2D
         _statsUi.UpdateStats(_stats);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (_stats.Health <= 0) return;
 
@@ -62,5 +65,15 @@ public partial class Enemy : Area2D
         {
             QueueFree();
         }
+    }
+
+    void OnAreaEntered(Area2D area)
+    {
+        _arrow.Show();
+    }
+
+    void OnAreaExited(Area2D area)
+    {
+        _arrow.Hide();
     }
 }

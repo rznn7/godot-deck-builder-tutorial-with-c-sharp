@@ -10,8 +10,6 @@ public partial class CardAimingState : CardState
 
     public override void Enter()
     {
-        CardUI.ColorRect.Color = new Color(255f, 255f, 0f);
-        CardUI.StateLabel.Text = "AIMING";
         CardUI.Targets.Clear();
 
         var offset = new Vector2(CardUI.Parent.Size.X / 2, -CardUI.Size.Y / 2);

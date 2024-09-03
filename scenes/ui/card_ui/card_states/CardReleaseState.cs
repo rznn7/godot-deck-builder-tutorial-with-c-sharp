@@ -8,15 +8,13 @@ public partial class CardReleaseState : CardState
 
     public override void Enter()
     {
-        CardUI.ColorRect.Color = new Color(127, 0, 255);
-        CardUI.StateLabel.Text = "RELEASED";
-
         _played = false;
 
         if (CardUI.Targets.Count > 0)
         {
             _played = true;
             GD.Print($"play card for target.s {CardUI.Targets}");
+            CardUI.Play();
         }
     }
 

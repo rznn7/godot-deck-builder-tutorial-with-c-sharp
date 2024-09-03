@@ -1,3 +1,4 @@
+using DeckBuilderTutorialC.global;
 using Godot;
 
 namespace DeckBuilderTutorialC;
@@ -16,8 +17,9 @@ public partial class CardDraggingState : CardState
             CardUI.Reparent(uiLayer);
         }
 
-        CardUI.ColorRect.Color = new Color(0, 0, 155);
-        CardUI.StateLabel.Text = "DRAGGING";
+        CardUI.Panel.AddThemeStyleboxOverride("panel", CardUI.CardDraggingStyleBox);
+
+        Events.Instance.EmitSignal(Events.SignalName.CardDragStarted, CardUI);
 
         _isMinimumDragTimeElapsed = false;
         GetTree().CreateTimer(DragMinimumThreshold, false)
@@ -26,6 +28,7 @@ public partial class CardDraggingState : CardState
 
     public override void Exit()
     {
+        Events.Instance.EmitSignal(Events.SignalName.CardDragEnded, CardUI);
     }
 
     public override void OnInput(InputEvent @event)
@@ -51,7 +54,7 @@ public partial class CardDraggingState : CardState
             EmitSignal(CardState.SignalName.TransitionRequested, (int)EState.Dragging, (int)EState.Base);
             return;
         }
-        
+
         if (isConfirm && _isMinimumDragTimeElapsed)
         {
             GetViewport().SetInputAsHandled();
