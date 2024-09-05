@@ -6,16 +6,39 @@ namespace DeckBuilderTutorialC;
 
 public partial class Hand : HBoxContainer
 {
+    [Export]
+    public CharacterStats CharacterStats { get; set; }
+
+    // @onready variables
+    static readonly PackedScene CardUiScene = GD.Load<PackedScene>("res://scenes/ui/card_ui.tscn");
+
     int _cardsPlayedThisTurn;
 
     public override void _Ready()
     {
         Events.Instance.CardPlayed += OnCardPlayed;
+    }
 
-        foreach (var cardUINode in GetChildren().OfType<CardUI>())
+    public void AddCard(Card card)
+    {
+        var newCardUi = CardUiScene.Instantiate<CardUI>();
+        AddChild(newCardUi);
+        newCardUi.ReParentRequested += OnCardUIReParentRequested;
+        newCardUi.Card = card;
+        newCardUi.Parent = this;
+        newCardUi.CharacterStats = CharacterStats;
+    }
+
+    public void DiscardCard(CardUI cardUI)
+    {
+        cardUI.QueueFree();
+    }
+
+    public void DisableHand()
+    {
+        foreach (var cardUI in GetChildren().OfType<CardUI>())
         {
-            cardUINode.Parent = this;
-            cardUINode.ReParentRequested += OnCardUIReParentRequested;
+            cardUI.IsDisabled = true;
         }
     }
 

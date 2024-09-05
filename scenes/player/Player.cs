@@ -13,7 +13,7 @@ public partial class Player : Node2D
         get { return _stats; }
         set
         {
-            _stats = value.CreateInstance();
+            _stats = value;
             Stats.StatsChanged += UpdateStats;
             UpdatePlayer();
         }

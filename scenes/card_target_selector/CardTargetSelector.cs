@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using global::DeckBuilderTutorialC.global;
+using DeckBuilderTutorialC.global;
 using Godot;
 
 namespace DeckBuilderTutorialC;

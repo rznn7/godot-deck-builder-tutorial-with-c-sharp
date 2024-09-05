@@ -67,7 +67,7 @@ public partial class CardUI : Control
 
     bool _isPlayable = true;
 
-    public bool IsDisabled = false;
+    public bool IsDisabled;
 
     public override void _Ready()
     {
@@ -92,8 +92,6 @@ public partial class CardUI : Control
         Events.Instance.CardDragEnded += OnCardDragOrAimEnded;
 
         _cardStateMachine.Initialize(this);
-
-        UpdateCardUI();
     }
 
     public override void _Input(InputEvent @event)
@@ -161,8 +159,10 @@ public partial class CardUI : Control
 
     void UpdateCardUI()
     {
-        Cost.Text = $"{_card.Cost}";
-        Icon.Texture = _card.Icon;
+        if (Card == null ) return;
+        
+        Cost.Text = $"{Card.Cost}";
+        Icon.Texture = Card.Icon;
     }
 
     void UpdatePlayableUI()

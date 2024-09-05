@@ -1,4 +1,5 @@
 using DeckBuilderTutorialC.Extensions;
+using global::DeckBuilderTutorialC.global;
 using Godot;
 
 namespace DeckBuilderTutorialC;
@@ -14,6 +15,8 @@ public partial class CardBaseState : CardState
         CardUI.Panel.AddThemeStyleboxOverride("panel", CardUI.CardBaseStyleBox);
         CardUI.EmitSignal(CardUI.SignalName.ReParentRequested, CardUI);
         CardUI.PivotOffset = Vector2.Zero;
+
+        Events.Instance.EmitSignal(Events.SignalName.CardTooltipHideRequested);
     }
 
     public override void Exit()
@@ -38,6 +41,8 @@ public partial class CardBaseState : CardState
         if (!CardUI.IsPlayable || CardUI.IsDisabled) return;
 
         CardUI.Panel.AddThemeStyleboxOverride("panel", CardUI.CardHoverStyleBox);
+
+        Events.Instance.EmitSignal(Events.SignalName.CardTooltipShowRequested, CardUI.Card);
     }
 
     public override void OnMouseExited()
@@ -45,5 +50,7 @@ public partial class CardBaseState : CardState
         if (!CardUI.IsPlayable || CardUI.IsDisabled) return;
 
         CardUI.Panel.AddThemeStyleboxOverride("panel", CardUI.CardBaseStyleBox);
+
+        Events.Instance.EmitSignal(Events.SignalName.CardTooltipHideRequested);
     }
 }

@@ -20,6 +20,7 @@ public partial class CardDraggingState : CardState
         CardUI.Panel.AddThemeStyleboxOverride("panel", CardUI.CardDraggingStyleBox);
 
         Events.Instance.EmitSignal(Events.SignalName.CardDragStarted, CardUI);
+        Events.Instance.EmitSignal(Events.SignalName.CardTooltipHideRequested);
 
         _isMinimumDragTimeElapsed = false;
         GetTree().CreateTimer(DragMinimumThreshold, false)

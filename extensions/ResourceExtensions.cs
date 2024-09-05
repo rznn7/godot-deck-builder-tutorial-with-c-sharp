@@ -4,8 +4,8 @@ namespace DeckBuilderTutorialC.Extensions;
 
 public static class ResourceExtensions
 {
-    public static T DuplicateAs<T>(this Resource resource) where T : Resource
+    public static T Duplicate<T>(this Resource resource, bool subresource = false) where T : Resource
     {
-        return (T)resource.Duplicate();
+        return (T)resource.Duplicate(subresource);
     }
 }

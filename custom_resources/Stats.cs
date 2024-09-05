@@ -61,7 +61,7 @@ public partial class Stats : Resource
 
     public virtual Stats CreateInstance()
     {
-        var instance = this.DuplicateAs<Stats>();
+        var instance = this.Duplicate<Stats>();
         instance.Health = MaxHealth;
         instance.Block = 0;
 

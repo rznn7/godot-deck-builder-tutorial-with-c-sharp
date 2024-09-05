@@ -40,7 +40,7 @@ public abstract partial class Card : Resource
     public Texture2D Icon;
 
     [Export(PropertyHint.MultilineText)]
-    string _tooltipText;
+    public string TooltipText;
 
     public bool IsSingleTargeted()
     {

@@ -10,4 +10,4 @@ _type = 0
 _target = 1
 Cost = 1
 Icon = ExtResource("1_xvlol")
-_tooltipText = ""
+TooltipText = "[center]Attack (1)[/center]"

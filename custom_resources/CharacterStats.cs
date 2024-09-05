@@ -46,7 +46,7 @@ public partial class CharacterStats : Stats
         if (base.CreateInstance() is not CharacterStats instance) return null;
 
         instance.ResetMana();
-        instance.Deck = instance.StartingDeck.DuplicateAs<CardPile>();
+        instance.Deck = instance.StartingDeck.Duplicate<CardPile>();
         instance.DrawPile = new CardPile();
         instance.Discard = new CardPile();
 

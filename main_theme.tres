@@ -1,9 +1,40 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c86xn1hlfydc0"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c86xn1hlfydc0"]
 
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="1_j120g"]
 [ext_resource type="StyleBox" uid="uid://bwv4q3fiaw5x4" path="res://scenes/ui/card_ui/card_base_stylebox.tres" id="1_qjasq"]
+[ext_resource type="StyleBox" uid="uid://kqm343o3aq0n" path="res://scenes/ui/card_ui/card_hover_stylebox.tres" id="2_dudf0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt4nk"]
+bg_color = Color(0.631373, 0.34902, 0.321569, 0.627451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.147776, 0.0593261, 0.0511363, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rx76m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftgvg"]
+bg_color = Color(0.631373, 0.34902, 0.321569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.416885, 0.387896, 0.169773, 1)
 
 [resource]
 default_font = ExtResource("1_j120g")
 default_font_size = 6
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 6
+Button/fonts/font = ExtResource("1_j120g")
+Button/styles/disabled = SubResource("StyleBoxFlat_mt4nk")
+Button/styles/focus = SubResource("StyleBoxEmpty_rx76m")
+Button/styles/hover = ExtResource("2_dudf0")
+Button/styles/normal = ExtResource("1_qjasq")
+Button/styles/pressed = SubResource("StyleBoxFlat_ftgvg")
 Panel/styles/panel = ExtResource("1_qjasq")
+PanelContainer/styles/panel = ExtResource("1_qjasq")

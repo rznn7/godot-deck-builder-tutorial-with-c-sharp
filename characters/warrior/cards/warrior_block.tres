@@ -10,4 +10,4 @@ _type = 0
 _target = 0
 Cost = 1
 Icon = ExtResource("1_aoqb4")
-_tooltipText = ""
+TooltipText = "[center]Block (1)[/center]"
